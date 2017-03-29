@@ -4,9 +4,10 @@ namespace NinjectAop.ServiceLayer
 {
     public interface IFeatureUsageLog 
     {
-        IEnumerable<KeyValuePair<string, bool>> Logs { get; }
+        IEnumerable<FeatureUsageLogItem> Logs { get; }
 
-        void Log(string psFeatureName,
-            bool enabled);
+        void Log(string feature,
+            bool isEnabled,
+            string stackTrace);
     }
 }

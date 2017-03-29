@@ -5,14 +5,15 @@ namespace NinjectAop.ServiceLayer
 {
     public class FeatureUsageLog : IFeatureUsageLog
     {
-        private readonly IList<KeyValuePair<string, bool>> _logs = new List<KeyValuePair<string, bool>>();
+        private readonly IList<FeatureUsageLogItem> _logs = new List<FeatureUsageLogItem>();
 
-        public IEnumerable<KeyValuePair<string, bool>> Logs => _logs.AsEnumerable();
+        public IEnumerable<FeatureUsageLogItem> Logs => _logs.AsEnumerable();
 
-        public void Log(string psFeatureName,
-            bool enabled)
+        public void Log(string feature,
+            bool isEnabled,
+            string stackTrace)
         {
-            _logs.Add(new KeyValuePair<string, bool>(psFeatureName, enabled));
+            _logs.Add(new FeatureUsageLogItem(feature, isEnabled, stackTrace));
         }
     }
 }

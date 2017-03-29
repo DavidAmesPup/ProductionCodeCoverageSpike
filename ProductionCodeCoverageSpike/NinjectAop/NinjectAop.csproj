@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Intercepters\FeatureUsageIntercepter.cs" />
+    <Compile Include="Intercepters\InterceptionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLayer\FeatureUsageLog.cs" />
+    <Compile Include="ServiceLayer\FeatureUsageLogItem.cs" />
     <Compile Include="ServiceLayer\IFeature.cs" />
     <Compile Include="ServiceLayer\Feature.cs" />
     <Compile Include="ServiceLayer\IFeatureUsageLog.cs" />

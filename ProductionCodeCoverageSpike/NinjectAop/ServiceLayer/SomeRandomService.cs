@@ -11,7 +11,7 @@
 
         public string DoSomething()
         {
-            if (_feature.GetFeatureValue_Bool("SomeFeature"))
+            if (_feature.GetFeatureValue_Bool("DoSomething"))
                 return "A am in SomeRandomService.DoSomething and the feature is enabled";
 
             return "A am in SomeRandomService.DoSomething and the feature is NOT enabled";

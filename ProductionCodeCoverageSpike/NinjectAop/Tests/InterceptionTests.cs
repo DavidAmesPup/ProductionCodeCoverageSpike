@@ -11,9 +11,18 @@ namespace NinjectAop.Tests
         private static IKernel SetupKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<IFeature>().To<Feature>().InTransientScope().Intercept().With<FeatureUsageIntercepter>();
+
+            kernel.Bind<IFeature>().To<Feature>();
+
+            //Use this style to intercept all interactions with a class.
+            //kernel.Bind<IFeature>().To<Feature>().InTransientScope().Intercept().With<FeatureUsageIntercepter>();
             kernel.Bind<IFeatureUsageLog>().To<FeatureUsageLog>().InThreadScope();
             kernel.Bind<ISomeRandomService>().To<SomeRandomService>().InTransientScope();
+
+            //Hook up single method interception.
+
+            kernel.UseInterceptorFor<Feature, FeatureUsageIntercepter>(x => x.GetFeatureValue_Bool(""));
+            
 
             return kernel;
             
